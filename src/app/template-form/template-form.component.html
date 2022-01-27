@@ -1,0 +1,79 @@
+<div class="container f-size">
+  <div class="row">
+      <h1 class="mt-3 mb-3">Template Directive Form</h1>
+           <form #useform="ngForm" (ngSubmit)="onSubmit(useform.value)">
+             <div class="d-flex justify-content-between">
+               <div class="mb-3">
+
+                 <label class="form-label">First Name</label>
+                 <span class="text text-danger star">*</span>
+
+                 <input type="text" class="form-control" placeholder="First name" name="f1" #f1="ngModel" ngModel required minlength="5">
+                 <div class="text text-danger" *ngIf="f1.touched && f1.errors?.['required'] ">FirstName  is Requried </div>
+                 <div class="text text-primary" *ngIf="f1.errors?.['minlength']">Enter more than char 4 characters</div>
+                 <div class="text text-success" *ngIf="f1.valid">success</div>
+               </div>
+               <div class="mb-3">
+                 <label class="form-label">Last Name</label>
+                 <input type="text" class="form-control" placeholder="Last name"  name="f2" #f2="ngModel" ngModel required>
+                 <div class="text text-danger" *ngIf="f2.touched && f2.errors?.['required'] ">Last Name is Requried </div>
+                
+                 <div class="text text-success" *ngIf=" f2.valid">success</div>
+               </div>
+             </div>
+               <div class="mb-3">
+                 <label for="exampleInputEmail1" class="form-label">Email address</label>
+                 <span class="text text-danger star">* </span>
+                 <input type="email" class="form-control" id="exampleInputEmail1" 
+                 placeholder="Enter name" #e1="ngModel" ngModel name="e1" required minlength="4">
+                 <div class="text text-danger" *ngIf="e1.touched && e1.errors?.['required'] "> Email id Requried </div>
+                  <div class="text text-primary" *ngIf="e1.errors?.['minlength']">Enter more than char</div>
+                  <div class="text text-success" *ngIf=" e1.valid">success</div>
+                  <!-- e1.touched && e1.invalid -->
+
+               </div>
+               <div class="mb-3">
+                 <label for="exampleInputPassword1" class="form-label">Password</label>
+                 <span class="text text-danger star">*</span>
+                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" #p1="ngModel" ngModel name="p1" required minlength="6">
+                 <div class="text text-danger" *ngIf="p1.touched && p1.errors?.['required']" >Password is required</div>
+                 <div class="text text-danger" *ngIf="p1.errors?.['minlength']" >Password must be at least 6 characters</div>
+                 <div class="text text-success"*ngIf="p1.valid" >Success</div>
+              
+               </div>
+               <div class="mb-3">
+                 <label  class="form-label">Phone Number</label>
+                 <span class="text text-danger star">*</span>
+                 <input type="text" class="form-control"  placeholder="Enter phone number" #pn1="ngModel" ngModel name="pn1" required minlength="10">
+                 <div class="text text-danger" *ngIf="pn1.touched && pn1.errors?.['required']" >Number is required</div>
+                 <div class="text text-danger" *ngIf="pn1.errors?.['minlength']" >Number must be at least 10 characters</div>
+                 <div class="text text-success"*ngIf="pn1.valid" >Success</div>
+              
+               </div>
+               <div class="mb-3">
+                 <label class="form-label">Address</label>
+                 <span class="text text-danger star">*</span>
+                 <input type="text" class="form-control"  placeholder="Enter U Address" #a1="ngModel" ngModel name="a1" required minlength="10">
+                 <div class="text text-danger" *ngIf="a1.touched && a1.errors?.['required']">Address is required</div>
+                 <!-- <div class="text text-danger" *ngIf="pn1.errors?.['minlength']" >Number must be at least 10 characters</div> -->
+                 
+                 <div class="text text-success"*ngIf="a1.valid">Success</div>
+              
+               </div>
+               <div class="mb-3">
+                 <label  class="form-label">City</label>
+                 
+                 <input type="text" class="form-control t-size" placeholder="Enter your city" #c1="ngModel" ngModel name="c1" required minlength="7">
+                 <div class="text text-danger" *ngIf="c1.touched && c1.errors?.['required']" >Number is required</div>
+                 <!-- <div class="text text-danger" *ngIf="pn1.errors?.['minlength']" >Number must be at least 10 characters</div> -->
+                 <div class="text text-success"*ngIf="c1.valid" >Success</div>
+             
+               </div>
+               <div style="text-align: center;">
+                 <button type="submit" class="btn btn-primary" [disabled]="useform.invalid">Submit</button>
+
+               </div>
+             </form>
+       
+   </div> 
+<div>
